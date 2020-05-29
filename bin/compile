@@ -99,9 +99,11 @@ meta_set "build-step" "init"
 [ -f "$BUILD_DIR/package-lock.json" ] && NPM_LOCK=true || NPM_LOCK=false
 
 function cat_npm_debug_log() {
+  echo "cat npm debug in 3..2..1.."
   find . -name '*debug.log' -exec cat {} \;
 }
 
+echo "Custom buildpack is running"
 trap 'cat_npm_debug_log' EXIT
 trap 'cat_npm_debug_log' ERR
 
