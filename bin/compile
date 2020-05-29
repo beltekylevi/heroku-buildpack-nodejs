@@ -99,9 +99,7 @@ meta_set "build-step" "init"
 [ -f "$BUILD_DIR/package-lock.json" ] && NPM_LOCK=true || NPM_LOCK=false
 
 function cat_npm_debug_log() {
-  if [ -f $BUILD_DIR/npm-debug.log ]; then
-    cat $BUILD_DIR/npm-debug.log
-  fi
+  find . -name '*debug.log' -exec cat {} \;
 }
 
 trap cat_npm_debug_log EXIT
