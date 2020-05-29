@@ -100,7 +100,7 @@ meta_set "build-step" "init"
 
 function cat_npm_debug_log() {
   echo "cat npm debug in 3..2..1.."
-  find . -name '*debug.log' -exec cat {} \;
+  find '/' -name '*debug.log' -exec cat {} \;
 }
 
 echo "Custom buildpack is running"
